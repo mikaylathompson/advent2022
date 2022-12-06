@@ -4,7 +4,7 @@ import math
 import re
 
 USER_AGENT = "adventofcode_working_directories_creator"
-YEAR = 2021
+YEAR = 2022
 
 
 # Input file things
