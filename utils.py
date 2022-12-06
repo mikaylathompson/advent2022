@@ -93,3 +93,6 @@ def ints(s):
 
 def flatten(lst):
     return [item for sublist in lst for item in sublist]
+
+def split_as_ints(sep, string):
+    return map(int, string.split(sep))
