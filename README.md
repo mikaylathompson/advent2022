@@ -1,4 +1,4 @@
-# Advent of Code 2021
+# Advent of Code 2022
 
 This repo contains my runner script and template code, as well as daily solutions for Advent of Code 2021.
 It can be used simply by cloning and using the `./advent.py` script as described below, but for `--download` to work,
