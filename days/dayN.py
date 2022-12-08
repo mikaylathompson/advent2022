@@ -21,3 +21,6 @@ def go(input_file, part):
         return do_part_1(inpt)
     else:
         return do_part_2(inpt)
+
+# Part 1:
+# Part 2:
