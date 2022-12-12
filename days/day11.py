@@ -10,8 +10,6 @@ import utils
 
 from collections import deque
 
-import sys
-sys.set_int_max_str_digits(1000000)
 
 class Operation:
     def __init__(self, line):
@@ -33,11 +31,13 @@ class Monkey:
         self.divisor = 0
         return
 
+
     def take_turn(self):
         throws = []
         while len(self.objects) > 0:
             throws.append(self.inspect_next())
         return throws
+
 
     def inspect_next(self):
         self.inspection_count += 1
@@ -47,10 +47,10 @@ class Monkey:
             new = new // 3
         else:
             new = new % self.divisor
-        # print(f"{self.objects=} {self.test_value=} {self.operation.string}")
         if new % self.test_value == 0:
             return (new, self.true_destination)
         return (new, self.false_destination)
+
 
 def create_monkeys(inpt, part=1):
     monkeys = []
@@ -67,16 +67,17 @@ def create_monkeys(inpt, part=1):
         if 'Test' in line:
             current_monkey.test_value = int(line.split()[-1])
             all_test_values.append(int(line.split()[-1]))
-        if 'true' in line:18170818354
+        if 'true' in line:
             current_monkey.true_destination = int(line.split()[-1])
         if 'false' in line:
             current_monkey.false_destination = int(line.split()[-1])
     if part == 2:
         gcd = math.prod(all_test_values)
-        print(gcd)
+        print(f"{gcd=}")
         for monkey in monkeys:
             monkey.divisor = gcd
     return monkeys
+
 
 def do_part_1(inpt):
     monkeys = create_monkeys(inpt)
@@ -89,19 +90,16 @@ def do_part_1(inpt):
     return inspects[-1] * inspects[-2]
 
 
-    return
-
 def do_part_2(inpt):
     monkeys = create_monkeys(inpt, part=2)
     for round_ in range(10000):
-        if round_ % 100 == 0:
-            print(round_)
         for monkey in monkeys:
             throws = monkey.take_turn()
             for value, dest in throws:
                 monkeys[dest].objects.append(value)
     inspects = sorted([m.inspection_count for m in monkeys])
     return inspects[-1] * inspects[-2]
+
 
 def go(input_file, part):
     inpt = utils.load_input_file(input_file)
